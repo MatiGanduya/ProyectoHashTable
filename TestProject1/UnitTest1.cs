@@ -6,7 +6,6 @@ namespace TestProject1
 {
     public class UnitTest1
     {
-
         [Fact]
         public void Test1()
         {
@@ -30,15 +29,14 @@ namespace TestProject1
             Assert.Empty(lista);//Corroboramos el paso anterior
         }
 
-
         [Theory]
         [InlineData(1000, "Demo1")]
         [InlineData(10000, "Demo2")]
         [InlineData(100000, "Demo3")]
         [InlineData(1000000, "Demo4")]
         [InlineData(10000000, "Demo5")]
-        public void Test2(int cantidad, string nombre) //Hacemos una comparacion entre una lista HashTable y linkedList de tiempo de busqueda de un objeto en una lista determinada 
-        {
+        public void Test2(int cantidad, string nombre) //Hacemos una comparacion entre una lista HashTable y  
+        {                                               //linkedList de tiempo de busqueda de un objeto en una lista determinada
             Hashtable hashtable = new Hashtable();
             LinkedList<int> linkedList = new LinkedList<int>();
 

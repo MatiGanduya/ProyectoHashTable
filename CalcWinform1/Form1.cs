@@ -1,6 +1,6 @@
 using Calc.Core.Interfaces;
 using System.Collections;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace CalcWinform1
 {
@@ -60,17 +60,17 @@ namespace CalcWinform1
             string[] operaciones = {"+", "-", "*", "/", "="};
             if (_lista.Count == 0)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 10; i++)// Creacion de botones numericos
                 {
-                    var b = new Button();
-                    b.Text = i.ToString();
-                    b.Width = 50;
-                    b.Height = 50;
+                    var btnNumero = new Button();
+                    btnNumero.Text = i.ToString();
+                    btnNumero.Width = 50;
+                    btnNumero.Height = 50;
 
-                    b.Location = new Point(x, y);
+                    btnNumero.Location = new Point(x, y);
 
-                    panelCalc.Controls.Add(b);
-                    _lista.Add(i, b);
+                    panelCalc.Controls.Add(btnNumero);
+                    _lista.Add(i, btnNumero);
                     x = x+50;
                     if (x > 149)
                     {
@@ -81,9 +81,10 @@ namespace CalcWinform1
                 }
                 x = 150;
                 y = 0;
-                foreach (string operacion in operaciones)
+
+                foreach (string operacion in operaciones)//Creacion de botones operacionales
                 {
-                    Button btnOperacion = new Button();
+                    var btnOperacion = new Button();
                     btnOperacion.Text = operacion;
                     btnOperacion.Width = 50;
                     btnOperacion.Height = 50;
@@ -94,7 +95,7 @@ namespace CalcWinform1
                     y += 50;
                     
                     
-                    _lista.Add(a, btnOperacion);
+                    _lista.Add(a, btnOperacion);//por medio de la variable "a" creamos las claves necesarias para guardar cada boton en la lista hash
                     a = a + 1;
                    
                 }
@@ -118,10 +119,9 @@ namespace CalcWinform1
 
                 numeros.RemoveAt(numeros.Count - 1);
                 panelCalc.Controls.RemoveAt(0);
-                _lista.Clear();
-
+               
             }
-           
+            _lista.Clear();
         }
     }
 }
